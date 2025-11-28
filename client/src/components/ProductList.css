@@ -64,22 +64,22 @@
 /* --- PRODUCT GRID --- */
 .product-grid {
   display: grid;
-  /* Bắt buộc chia 3 cột đều nhau, mỗi cột tối thiểu 300px */
+
   grid-template-columns: repeat(3, 1fr); 
   gap: 30px;
   width: 100%;
 }
 
-/* --- RESPONSIVE (Co giãn khi màn hình nhỏ) --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 cột */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media (max-width: 640px) {
   .product-grid {
-    grid-template-columns: 1fr; /* Mobile: 1 cột */
+    grid-template-columns: 1fr;
   }
 }
 

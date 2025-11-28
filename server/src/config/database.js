@@ -1,7 +1,7 @@
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
-// Tạo hồ bơi kết nối (Connection Pool)
+// Create Connection Pool
 const pool = mysql.createPool({
   host: process.env.DB_HOST || '127.0.0.1',
   user: process.env.DB_USER || 'root',
@@ -12,7 +12,7 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// Hàm kiểm tra kết nối
+// Function to test database connection
 async function testConnection() {
   try {
     const [rows] = await pool.query('SELECT 1');

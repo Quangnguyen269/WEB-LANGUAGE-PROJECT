@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const { testConnection } = require('./config/database'); // Import hàm test DB
+const { testConnection } = require('./config/database');
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 // Import Routes
 app.use('/api/products', require('./routes/products'));
 
-// Route mặc định (Health check)
+// Default Route (Health check)
 app.get('/', (req, res) => {
     res.send('Server is running!');
 });
@@ -26,12 +26,12 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Internal Server Error' });
 });
 
-// Lấy cổng từ file .env hoặc mặc định là 4000
+// Get port from .env or default to 4000
 const PORT = process.env.PORT || 4000;
 
-// --- QUAN TRỌNG NHẤT: LỆNH KHỞI ĐỘNG SERVER ---
+// Start Server
 app.listen(PORT, async () => {
     console.log(`🚀 Server is starting...`);
-    await testConnection(); // Kiểm tra kết nối MySQL
+    await testConnection(); // Check Database Connection
     console.log(`✨ Server running on http://localhost:${PORT}`);
 });
