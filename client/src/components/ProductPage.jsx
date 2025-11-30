@@ -12,6 +12,19 @@ const ProductPage = ({ product, onBack }) => {
     breakdown: []
   });
 
+  // XỬ LÝ SPECS (JSON) - QUAN TRỌNG
+  let specsObj = {};
+  try {
+    if (typeof product.specs === 'string') {
+        specsObj = JSON.parse(product.specs);
+    } else if (typeof product.specs === 'object') {
+        specsObj = product.specs;
+    }
+  } catch (e) {
+    // console.error("Error parsing specs", e); 
+    // Bỏ qua lỗi parse để không crash app
+  }
+
   const [newComment, setNewComment] = useState({ name: '', rating: 5, content: '' });
   const [submitting, setSubmitting] = useState(false);
 
@@ -113,7 +126,22 @@ const ProductPage = ({ product, onBack }) => {
           <p className="product-price">{product.price}</p>
           <p style={{color: '#666', lineHeight: 1.6}}>{product.description}</p>
           
-          <div className="rating-overview">
+          {/* --- SPECS TABLE (XỬ LÝ AN TOÀN) --- */}
+          {specsObj && Object.keys(specsObj).length > 0 && (
+            <div className="specs-container">
+                <h4 style={{margin:'0 0 10px 0', borderBottom:'1px solid #eee', paddingBottom:'5px'}}>⚙️ Technical Specifications</h4>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px 20px'}}>
+                    {Object.entries(specsObj).map(([key, value]) => (
+                        <div key={key} style={{display:'flex', justifyContent:'space-between', borderBottom:'1px dashed #eee', padding:'4px 0', fontSize:'13px'}}>
+                            <span style={{fontWeight:'600', color:'#555'}}>{key}:</span>
+                            <span style={{color:'#333'}}>{value}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+          )}
+
+          <div className="rating-overview" style={{marginTop:'20px'}}>
             <span>{renderStars(realStats.average_rating)}</span>
             <span style={{color: '#000', fontWeight: 'bold', marginLeft: '10px'}}>{realStats.average_rating}/5</span>
             <span style={{color: '#888', fontSize: '16px'}}> ({realStats.total_reviews} reviews)</span>
