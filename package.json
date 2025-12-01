@@ -1,0 +1,31 @@
+{
+  "name": "web-language-project",
+  "version": "1.0.0",
+  "description": "Full-stack Product Review Aggregator. Features: Product Listing, Pagination, Filtering, and Scraping Simulation.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quangnguyen269/WEB-LANGUAGE-PROJECT.git"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Quangnguyen269/WEB-LANGUAGE-PROJECT/issues"
+  },
+  "homepage": "https://github.com/Quangnguyen269/WEB-LANGUAGE-PROJECT#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
