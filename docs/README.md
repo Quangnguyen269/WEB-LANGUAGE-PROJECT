@@ -32,13 +32,13 @@ This is a teaching-quality project following industry best practices and course 
 
 ```mermaid
 graph TD
-    Frontend[Frontend React + Tailwind + Vite] <-->|JSON API| Backend[Backend Node.js + Express]
+    Frontend[Frontend React + Vite] <-->|JSON API| Backend[Backend Node.js + Express]
     Backend <-->|SQL| Database[(Database MySQL)]
 ```
 
 *Or text representation:*
 ```text
-Frontend (React + Tailwind + Vite)
+Frontend (React + Vite)
           ↕ JSON API
 Backend  (Node.js + Express)
           ↕ SQL
@@ -250,7 +250,7 @@ VITE_BACKEND_URL=http://localhost:4000
 
 | Layer | Technology |
 | :--- | :--- |
-| **Frontend** | React, Vite, Tailwind |
+| **Frontend** | React, Vite |
 | **Backend** | Node.js, Express |
 | **Database** | MySQL |
 | **Utilities** | mysql2, cors, morgan |
