@@ -202,7 +202,7 @@ project/
 │
 ├── docs/
 ├── README.md
-└── LLM_Usage.md          # required by instructor
+└── LLM_Usage.md          
 ```
 
 ---
